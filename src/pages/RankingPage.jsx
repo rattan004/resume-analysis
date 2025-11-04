@@ -2,11 +2,12 @@
 "use client"
 
 // FIX 1 & 2: Removed explicit 'React' import (if it was here) and kept 'Link' as it is used.
-import { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom" 
+
+import {  useParams } from "react-router-dom" 
 import { MapPin, Eye, BarChart3, Brain } from "lucide-react"
 import api from "../services/api"
 import "./RankingPage.css"
+import { useEffect, useState } from "react"
 
 const RankingPage = () => {
     // FIX 3: (Implicit fix) If the error at line 23 was inside RankingPage, 
