@@ -116,7 +116,6 @@ const ContactPage = () => {
       if (err.message && err.message.includes('Validation failed')) {
         // Extract field-specific errors from backend response
         try {
-          // FIX 1: The unused variable in the catch block is already changed to '_'
           const errorData = JSON.parse(err.message); 
           if (errorData.errors && Array.isArray(errorData.errors)) {
             const backendErrors = {};
@@ -130,7 +129,7 @@ const ContactPage = () => {
           } else {
             setError(errorData.message || 'Validation failed. Please check your input.');
           }
-        } catch (_) { // This now correctly signals the intention to ignore the parsing error variable
+        } catch (_error) { // FIX: Changed '_' to '_error' to satisfy strict no-unused-vars rule
           setError(err.message || 'Failed to send message. Please try again.');
         }
       } else if (err.message && err.message.includes('Too many')) {
@@ -152,7 +151,6 @@ const ContactPage = () => {
               <CheckCircle size={48} />
             </div>
             <h1>Message Sent Successfully!</h1>
-            {/* FIX 2: Escaped unescaped entity 'We'll' */}
             <p>Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p> 
             <button 
               className="btn btn-primary"
@@ -171,7 +169,6 @@ const ContactPage = () => {
       <div className="container">
         <div className="contact-header">
           <h1>Get in Touch</h1>
-          {/* FIX 3: Escaped unescaped entity 'We'd' */}
           <p>Have questions about our AI resume screening tool? We&apos;d love to hear from you.</p> 
         </div>
 
