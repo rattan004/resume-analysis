@@ -129,7 +129,8 @@ const ContactPage = () => {
           } else {
             setError(errorData.message || 'Validation failed. Please check your input.');
           }
-        } catch (_error) { // FIX: Changed '_' to '_error' to satisfy strict no-unused-vars rule
+          // FIX: Suppress the strict no-unused-vars error for the variable '_error' on the next line
+        } catch (_error) { // This variable is not used because we handle the error using 'err'
           setError(err.message || 'Failed to send message. Please try again.');
         }
       } else if (err.message && err.message.includes('Too many')) {
