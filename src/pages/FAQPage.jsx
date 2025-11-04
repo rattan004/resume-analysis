@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
 import './FAQPage.css';
