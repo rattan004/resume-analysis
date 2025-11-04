@@ -1,5 +1,5 @@
-"use client"
-
+'use client'
+export const dynamic = "force-dynamic";
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Info, Loader2, AlertTriangle } from 'lucide-react';

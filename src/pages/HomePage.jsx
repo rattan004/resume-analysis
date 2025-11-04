@@ -1,3 +1,6 @@
+
+'use client'
+export const dynamic = "force-dynamic";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Upload, CircleCheck as CheckCircle, X, Eye, ChartBar as BarChart3, Brain } from 'lucide-react';

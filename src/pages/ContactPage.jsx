@@ -1,3 +1,6 @@
+
+'use client'
+export const dynamic = "force-dynamic";
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CircleCheck as CheckCircle, AlertCircle } from 'lucide-react';
 import api from '../services/api';

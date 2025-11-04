@@ -1,8 +1,5 @@
-// src/pages/ResultsPage.jsx (or RankingPage.jsx)
-"use client"
-
-// FIX 1 & 2: Removed explicit 'React' import (if it was here) and kept 'Link' as it is used.
-
+'use client'
+export const dynamic = "force-dynamic";
 import {  useParams } from "react-router-dom" 
 import { MapPin, Eye, BarChart3, Brain } from "lucide-react"
 import api from "../services/api"
