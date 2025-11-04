@@ -2,12 +2,13 @@
 'use client'
 export const dynamic = "force-dynamic";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Upload, CircleCheck as CheckCircle, X, Eye, ChartBar as BarChart3, Brain } from 'lucide-react';
 import api from '../services/api'; // Ensure this path is correct
 import './HomePage.css';
+import { useRouter } from 'next/navigation';
 
 const HomePage = () => {
+    const router = useRouter()
     // 🎯 UPDATED STATE: 'resume' is now an array of files
     const [uploadedFiles, setUploadedFiles] = useState({
         resume: [], // Array to hold multiple resume files
@@ -153,7 +154,8 @@ const HomePage = () => {
             localStorage.setItem('currentAnalysisId', jobId);
             
             // Navigate to the ranking/results page
-            navigate(`/ranking/${jobId}`);
+          
+            router.push(`/ranking/${jobId}`);
             
         } catch (err) {
             const serverMessage = err.message.includes('Analysis Error:') ? err.message.replace('Analysis Error: ', '') : (err.response?.data?.error || err.response?.data?.message);
