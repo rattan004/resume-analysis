@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import PropTypes from 'prop-types'; // 1. Import PropTypes
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -24,6 +25,11 @@ const ProtectedRoute = ({ children }) => {
   }
 
   return children;
+};
+
+// 2. Add prop validation for 'children'
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default ProtectedRoute;

@@ -101,7 +101,7 @@ const LoginPage = () => {
               )}
               
               <button type="submit" className="auth-btn" disabled={isLoading}>
-                {isLoading ? 'Signing In...' : 'Sign In'}
+                {isLoading ? 'Signing In...' : 'Sign In'} 
               </button>
               
               <div className="auth-switch">
