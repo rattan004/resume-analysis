@@ -1,7 +1,11 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // 1. Import PropTypes to fix the Error
 import api from '../services/api';
 
 const AuthContext = createContext();
+
+// WARNING: 6:14 Fast refresh only works when a file only exports components.
+// To fix this warning, move the 'useAuth' hook into a separate file (e.g., 'use-auth.js')
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -58,9 +62,13 @@ export const AuthProvider = ({ children }) => {
         .catch(() => {
           localStorage.removeItem('token');
           setUser(null);
+        })
+        .finally(() => { // Ensure loading is set to false after API call, regardless of success
+            setLoading(false);
         });
+    } else {
+        setLoading(false); // Set loading false if no token is found
     }
-    setLoading(false);
   }, []);
 
   const value = {
@@ -76,4 +84,9 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+// 2. Add PropTypes validation (Fixes Error: 14:32 'children' is missing)
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
