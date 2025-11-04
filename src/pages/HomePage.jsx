@@ -20,7 +20,6 @@ const HomePage = () => {
     });
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [error, setError] = useState('');
-    const navigate = useNavigate();
 
     // ... (handleDragOver and handleDragLeave remain the same) ...
     const handleDragOver = (e, type) => {
