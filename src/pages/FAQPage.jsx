@@ -1,4 +1,5 @@
 'use client'
+export const dynamic = "force-dynamic";
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
 import './FAQPage.css';
