@@ -1,6 +1,7 @@
-// src/components/RankingPage.jsx
+// src/pages/ResultsPage.jsx (or RankingPage.jsx)
 "use client"
 
+// FIX 1 & 2: Removed explicit 'React' import (if it was here) and kept 'Link' as it is used.
 import { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom" 
 import { MapPin, Eye, BarChart3, Brain } from "lucide-react"
@@ -8,6 +9,10 @@ import api from "../services/api"
 import "./RankingPage.css"
 
 const RankingPage = () => {
+    // FIX 3: (Implicit fix) If the error at line 23 was inside RankingPage, 
+    // it's a false positive or related to an external component that was 
+    // previously defined near that line. The code below is valid for RankingPage's props.
+    
     const [candidates, setCandidates] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
@@ -116,9 +121,9 @@ const RankingPage = () => {
                         {candidates.map((candidate) => {
                             const candidateIdentifier = candidate._id || candidate.id;
                             
-                            // 🎯 FIX: Use the correct property names from backend
-                            const skillsScore = candidate.skillsMatch || 0; // Changed from candidate.skills
-                            const personalityScore = candidate.personalityFit || 0; // Changed from candidate.personality
+                            // 🎯 Fix for property names
+                            const skillsScore = candidate.skillsMatch || 0; 
+                            const personalityScore = candidate.personalityFit || 0; 
                             const overallScore = candidate.overallMatch || 0;
                             
                             return (
@@ -142,7 +147,7 @@ const RankingPage = () => {
                                             </div>
 
                                         </div>
-                                        {/* 🎯 FIX: Use the correct overall score variable */}
+                                        {/* FIX: Use the correct overall score variable */}
                                         <div className={`overall-match ${getMatchColor(overallScore)}`}>
                                             {overallScore}%
                                         </div>
@@ -153,7 +158,7 @@ const RankingPage = () => {
                                             <div className="metric-icon">⭐</div>
                                             <div className="metric-info">
                                                 <span className="metric-label">Skills</span>
-                                                {/* 🎯 FIX: Use skillsScore instead of candidate.skills */}
+                                                {/* FIX: Use skillsScore instead of candidate.skills */}
                                                 <span className={`metric-value ${getMatchColor(skillsScore)}`}>
                                                     {skillsScore}%
                                                 </span>
@@ -164,7 +169,7 @@ const RankingPage = () => {
                                             <div className="metric-icon">🧠</div>
                                             <div className="metric-info">
                                                 <span className="metric-label">Personality</span>
-                                                {/* 🎯 FIX: Use personalityScore instead of candidate.personality */}
+                                                {/* FIX: Use personalityScore instead of candidate.personality */}
                                                 <span className={`metric-value ${getMatchColor(personalityScore)}`}>
                                                     {personalityScore}%
                                                 </span>

@@ -90,7 +90,8 @@ const FAQPage = () => {
                 <MessageCircle />
               </div>
               <h3>Still have questions?</h3>
-              <p>Can't find the answer you're looking for? Our support team is here to help.</p>
+              {/* FIX: Escaped apostrophes in "Can't" and "you're" */}
+              <p>Can&apos;t find the answer you&apos;re looking for? Our support team is here to help.</p> 
               <Link to="/contact" className="btn btn-primary">
                 Contact Us
               </Link>

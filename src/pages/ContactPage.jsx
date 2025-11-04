@@ -116,7 +116,8 @@ const ContactPage = () => {
       if (err.message && err.message.includes('Validation failed')) {
         // Extract field-specific errors from backend response
         try {
-          const errorData = JSON.parse(err.message);
+          // Changed 'parseError' to '_' to fix the unused variable error (132:18)
+          const errorData = JSON.parse(err.message); 
           if (errorData.errors && Array.isArray(errorData.errors)) {
             const backendErrors = {};
             errorData.errors.forEach(errorItem => {
@@ -129,7 +130,7 @@ const ContactPage = () => {
           } else {
             setError(errorData.message || 'Validation failed. Please check your input.');
           }
-        } catch (parseError) {
+        } catch (_) { // <--- FIX 1: Replaced unused 'parseError' with '_'
           setError(err.message || 'Failed to send message. Please try again.');
         }
       } else if (err.message && err.message.includes('Too many')) {
@@ -151,7 +152,8 @@ const ContactPage = () => {
               <CheckCircle size={48} />
             </div>
             <h1>Message Sent Successfully!</h1>
-            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+            {/* FIX 2: Replaced 'We'll' with 'We&apos;ll' (154:47) */}
+            <p>Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p> 
             <button 
               className="btn btn-primary"
               onClick={() => setIsSubmitted(false)}
@@ -169,7 +171,8 @@ const ContactPage = () => {
       <div className="container">
         <div className="contact-header">
           <h1>Get in Touch</h1>
-          <p>Have questions about our AI resume screening tool? We'd love to hear from you.</p>
+          {/* FIX 3: Replaced 'We'd' with 'We&apos;d' (172:67) */}
+          <p>Have questions about our AI resume screening tool? We&apos;d love to hear from you.</p> 
         </div>
 
         <div className="contact-content">

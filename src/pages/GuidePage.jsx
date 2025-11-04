@@ -93,7 +93,8 @@ const GuidePage = () => {
         <div className="guide-content">
           {/* ATS Do's and Don'ts */}
           <section className="guide-section">
-            <h2>ATS Do's and Don'ts</h2>
+            {/* FIX 1 & 2: Escaped apostrophes in Do's and Don'ts */}
+            <h2>ATS Do&apos;s and Don&apos;ts</h2> 
             <p>Follow these essential guidelines to ensure your resume gets past automated screening systems.</p>
             
             <div className="dos-donts-grid">
@@ -128,13 +129,13 @@ const GuidePage = () => {
                       {tip.icon}
                     </div>
                     <h3>{tip.title}</h3>
-                  </div>
-                  <p>{tip.description}</p>
-                  <ul className="tip-list">
-                    {tip.tips.map((item, itemIndex) => (
-                      <li key={itemIndex}>{item}</li>
-                    ))}
-                  </ul>
+                    <p>{tip.description}</p>
+                    </div>
+                    <ul className="tip-list">
+                      {tip.tips.map((item, itemIndex) => (
+                        <li key={itemIndex}>{item}</li>
+                      ))}
+                    </ul>
                 </div>
               ))}
             </div>

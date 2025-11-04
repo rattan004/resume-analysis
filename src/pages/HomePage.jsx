@@ -101,7 +101,7 @@ const HomePage = () => {
             console.log(`Step 2: Analyzing ${uploadedFiles.resume.length} resumes with Job ID: ${jobId}...`);
 
             // Create an array of promises, one for each resume file
-            const analysisPromises = uploadedFiles.resume.map((file, index) => {
+            const analysisPromises = uploadedFiles.resume.map((file, _ ) => {
                 const resumeFormData = new FormData();
                 resumeFormData.append('resume', file);
                 resumeFormData.append('jobId', jobId); 

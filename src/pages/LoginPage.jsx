@@ -105,7 +105,7 @@ const LoginPage = () => {
               </button>
               
               <div className="auth-switch">
-                <p>Don't have an account? <Link to="/signup" className="auth-link">Sign up here</Link></p>
+                <p>Don&apos;t have an account? <Link to="/signup" className="auth-link">Sign up here</Link></p>
               </div>
             </form>
           </div>
