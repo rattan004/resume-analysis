@@ -297,7 +297,7 @@ const ResultsPage = () => {
                                 <h2>Personality Profile</h2>
                                 <button className="info-button" onClick={() => setShowPersonalityModal(true)}>
                                     <p>i</p>
-                                    <Info size={16} />
+                                    <Info size={16  } />
                                 </button>
                             </div>
 

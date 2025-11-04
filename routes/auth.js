@@ -87,7 +87,7 @@ router.post('/register', [
 
 // Login (Updated to use MongoDB)
 router.post('/login', [
-  authLimiter,  
+  authLimiter,      
   body('email').isEmail().normalizeEmail().withMessage('Please provide a valid email'),
   body('password').notEmpty().withMessage('Password is required')
 ], async (req, res) => {
