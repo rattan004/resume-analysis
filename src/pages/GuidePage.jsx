@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { CircleCheck as CheckCircle, CircleAlert as AlertCircle, Circle as XCircle, ArrowRight, Target, FileText, Zap } from 'lucide-react';
+
+import { CircleCheck as CheckCircle, CircleAlert as AlertCircle, Circle as XCircle, ArrowRight, Target, FileText, Zap, Link } from 'lucide-react';
 import './GuidePage.css';
 
 const GuidePage = () => {
@@ -182,7 +182,7 @@ const GuidePage = () => {
             <div className="cta-card">
               <h2>Ready to Test Your Resume?</h2>
               <p>Use our AI-powered analysis tool to see how well your resume performs against ATS systems and get personalized recommendations for improvement.</p>
-              <Link to="/" className="btn btn-primary cta-btn">
+              <Link href="/" className="btn btn-primary cta-btn">
                 Start Analysis
                 <ArrowRight />
               </Link>

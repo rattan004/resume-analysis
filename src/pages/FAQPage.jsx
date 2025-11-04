@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
 import './FAQPage.css';
+import Link from 'next/link';
 
 const FAQPage = () => {
   const [openItems, setOpenItems] = useState({});
@@ -92,7 +92,7 @@ const FAQPage = () => {
               <h3>Still have questions?</h3>
               {/* FIX: Escaped apostrophes in "Can't" and "you're" */}
               <p>Can&apos;t find the answer you&apos;re looking for? Our support team is here to help.</p> 
-              <Link to="/contact" className="btn btn-primary">
+              <Link href="/contact" className="btn btn-primary">
                 Contact Us
               </Link>
             </div>
